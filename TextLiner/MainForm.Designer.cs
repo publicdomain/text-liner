@@ -68,7 +68,7 @@ namespace TextLiner
 			this.maxLengthButton = new System.Windows.Forms.Button();
 			this.ascendingButton = new System.Windows.Forms.Button();
 			this.descendingButton = new System.Windows.Forms.Button();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.bufferTextBox = new System.Windows.Forms.TextBox();
 			this.mainMenuStrip.SuspendLayout();
 			this.mainStatusStrip.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -358,7 +358,7 @@ namespace TextLiner
 			this.tableLayoutPanel1.Controls.Add(this.maxLengthButton, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.ascendingButton, 2, 0);
 			this.tableLayoutPanel1.Controls.Add(this.descendingButton, 3, 0);
-			this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.bufferTextBox, 0, 1);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -416,16 +416,16 @@ namespace TextLiner
 			this.descendingButton.UseVisualStyleBackColor = true;
 			this.descendingButton.Click += new System.EventHandler(this.OnDescendingButtonClick);
 			// 
-			// textBox1
+			// bufferTextBox
 			// 
-			this.tableLayoutPanel1.SetColumnSpan(this.textBox1, 4);
-			this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox1.Location = new System.Drawing.Point(3, 38);
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textBox1.Size = new System.Drawing.Size(618, 355);
-			this.textBox1.TabIndex = 4;
+			this.tableLayoutPanel1.SetColumnSpan(this.bufferTextBox, 4);
+			this.bufferTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.bufferTextBox.Location = new System.Drawing.Point(3, 38);
+			this.bufferTextBox.Multiline = true;
+			this.bufferTextBox.Name = "bufferTextBox";
+			this.bufferTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			this.bufferTextBox.Size = new System.Drawing.Size(618, 355);
+			this.bufferTextBox.TabIndex = 4;
 			// 
 			// MainForm
 			// 
@@ -456,7 +456,7 @@ namespace TextLiner
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
 		private System.Windows.Forms.ToolStripMenuItem applylastOnOpenToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox bufferTextBox;
 		private System.Windows.Forms.Button descendingButton;
 		private System.Windows.Forms.Button ascendingButton;
 		private System.Windows.Forms.Button maxLengthButton;

@@ -9,6 +9,7 @@ namespace TextLiner
     using System;
     using System.Collections.Generic;
     using System.Drawing;
+    using System.Linq;
     using System.Windows.Forms;
 
     /// <summary>
@@ -32,7 +33,8 @@ namespace TextLiner
         /// <param name="e">E.</param>
         private void OnMinLengthButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code 
+            // Order text box lines by min. length
+            this.bufferTextBox.Lines = this.bufferTextBox.Lines.OrderBy(x => x.Length).ToArray();
         }
 
         /// <summary>
