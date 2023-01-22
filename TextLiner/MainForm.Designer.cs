@@ -48,6 +48,7 @@ namespace TextLiner
 			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.applylastOnOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.removeBlankLinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.freeReleasesPublicDomainisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.originalThreadDonationCodercomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,6 +70,9 @@ namespace TextLiner
 			this.ascendingButton = new System.Windows.Forms.Button();
 			this.descendingButton = new System.Windows.Forms.Button();
 			this.bufferTextBox = new System.Windows.Forms.TextBox();
+			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+			this.trimLinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mainMenuStrip.SuspendLayout();
 			this.mainStatusStrip.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -212,7 +216,9 @@ namespace TextLiner
 			// 
 			this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.alwaysOnTopToolStripMenuItem,
-									this.applylastOnOpenToolStripMenuItem});
+									this.applylastOnOpenToolStripMenuItem,
+									this.removeBlankLinesToolStripMenuItem,
+									this.trimLinesToolStripMenuItem});
 			this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
 			this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
 			this.optionsToolStripMenuItem.Text = "&Options";
@@ -221,7 +227,7 @@ namespace TextLiner
 			// alwaysOnTopToolStripMenuItem
 			// 
 			this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
-			this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+			this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
 			this.alwaysOnTopToolStripMenuItem.Text = "&Always on top";
 			// 
 			// applylastOnOpenToolStripMenuItem
@@ -229,8 +235,16 @@ namespace TextLiner
 			this.applylastOnOpenToolStripMenuItem.Checked = true;
 			this.applylastOnOpenToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.applylastOnOpenToolStripMenuItem.Name = "applylastOnOpenToolStripMenuItem";
-			this.applylastOnOpenToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+			this.applylastOnOpenToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
 			this.applylastOnOpenToolStripMenuItem.Text = "Apply &last on open";
+			// 
+			// removeBlankLinesToolStripMenuItem
+			// 
+			this.removeBlankLinesToolStripMenuItem.Checked = true;
+			this.removeBlankLinesToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.removeBlankLinesToolStripMenuItem.Name = "removeBlankLinesToolStripMenuItem";
+			this.removeBlankLinesToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+			this.removeBlankLinesToolStripMenuItem.Text = "&Remove blank lines";
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -426,6 +440,25 @@ namespace TextLiner
 			this.bufferTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
 			this.bufferTextBox.Size = new System.Drawing.Size(618, 355);
 			this.bufferTextBox.TabIndex = 4;
+			this.bufferTextBox.TextChanged += new System.EventHandler(this.OnBufferTextBoxTextChanged);
+			// 
+			// saveFileDialog
+			// 
+			this.saveFileDialog.DefaultExt = "txt";
+			this.saveFileDialog.Filter = "TXT files (*.txt)|*.txt|All files (*.*)|*.*";
+			this.saveFileDialog.Title = "Save games file";
+			// 
+			// openFileDialog
+			// 
+			this.openFileDialog.DefaultExt = "txt";
+			this.openFileDialog.Filter = "TXT files (*.txt)|*.txt|All files (*.*)|*.*";
+			this.openFileDialog.Title = "Open games file";
+			// 
+			// trimLinesToolStripMenuItem
+			// 
+			this.trimLinesToolStripMenuItem.Name = "trimLinesToolStripMenuItem";
+			this.trimLinesToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+			this.trimLinesToolStripMenuItem.Text = "&Trim lines";
 			// 
 			// MainForm
 			// 
@@ -448,6 +481,10 @@ namespace TextLiner
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem trimLinesToolStripMenuItem;
+		private System.Windows.Forms.OpenFileDialog openFileDialog;
+		private System.Windows.Forms.SaveFileDialog saveFileDialog;
+		private System.Windows.Forms.ToolStripMenuItem removeBlankLinesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
 		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;

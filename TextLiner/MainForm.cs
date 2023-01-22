@@ -33,8 +33,28 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnMinLengthButtonClick(object sender, EventArgs e)
         {
-            // Order text box lines by min. length
-            this.bufferTextBox.Lines = this.bufferTextBox.Lines.OrderBy(x => x.Length).ToArray();
+            // Copy lines array to list
+            var lines = new List<string>(this.bufferTextBox.Lines);
+
+            // First check if must trim
+            if (this.trimLinesToolStripMenuItem.Checked)
+            {
+                // Trim lines
+                lines = lines.Select(x => x.Trim()).ToList();
+            }
+
+            // Check if must remove blanks and trim
+            if (this.removeBlankLinesToolStripMenuItem.Checked)
+            {
+                // Remove empty lines
+                lines = lines.Where(x => !string.IsNullOrEmpty(x)).ToList();
+            }
+
+            // Order lines by min. length
+            lines = lines.OrderBy(x => x.Length).ToList();
+
+            // Set into text box lines
+            this.bufferTextBox.Lines = lines.ToArray();
         }
 
         /// <summary>
@@ -66,7 +86,8 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnDescendingButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code 
+            // Order text box lines by descending
+            this.bufferTextBox.Lines = this.bufferTextBox.Lines.OrderByDescending(x => x).ToArray();
         }
 
         /// <summary>
@@ -207,6 +228,11 @@ namespace TextLiner
         private void OnExitToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code 
+        }
+
+        void OnBufferTextBoxTextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
