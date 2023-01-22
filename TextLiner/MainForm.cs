@@ -27,10 +27,10 @@ namespace TextLiner
         }
 
         /// <summary>
-        /// Ons the minimum length button click.
+        /// Handles  the minimum length button click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnMinLengthButtonClick(object sender, EventArgs e)
         {
             // Order text box lines by min. length
@@ -38,171 +38,172 @@ namespace TextLiner
         }
 
         /// <summary>
-        /// Ons the max length button click.
+        /// Handles  the max length button click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnMaxLengthButtonClick(object sender, EventArgs e)
         {
-            // Order text box lines by min. length
+            // Order text box lines by max. length
             this.bufferTextBox.Lines = this.bufferTextBox.Lines.OrderByDescending(x => x.Length).ToArray();
         }
 
         /// <summary>
-        /// Ons the ascending button click.
+        /// Handles  the ascending button click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnAscendingButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Order text box lines by ascending
+            this.bufferTextBox.Lines = this.bufferTextBox.Lines.OrderBy(x => x).ToArray();
         }
 
         /// <summary>
-        /// Ons the descending button click.
+        /// Handles  the descending button click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnDescendingButtonClick(object sender, EventArgs e)
         {
             // TODO Add code 
         }
 
         /// <summary>
-        /// Ons the new tool strip menu item click.
+        /// Handles  the new tool strip menu item click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnNewToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code
         }
 
         /// <summary>
-        /// Ons the open tool strip menu item click.
+        /// Handles  the open tool strip menu item click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnOpenToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code 
         }
 
         /// <summary>
-        /// Ons the save tool strip menu item click.
+        /// Handles  the save tool strip menu item click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnSaveToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code
         }
 
         /// <summary>
-        /// Ons the save as tool strip menu item click.
+        /// Handles  the save as tool strip menu item click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnSaveAsToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code 
         }
 
         /// <summary>
-        /// Ons the cut tool strip menu item click.
+        /// Handles  the cut tool strip menu item click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnCutToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code
         }
 
         /// <summary>
-        /// Ons the copy tool strip menu item click.
+        /// Handles  the copy tool strip menu item click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnCopyToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code 
         }
 
         /// <summary>
-        /// Ons the paste tool strip menu item click.
+        /// Handles  the paste tool strip menu item click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnPasteToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code
         }
 
         /// <summary>
-        /// Ons the select all tool strip menu item click.
+        /// Handles  the select all tool strip menu item click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnSelectAllToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code 
         }
 
         /// <summary>
-        /// Ons the options tool strip menu item drop down item clicked.
+        /// Handles  the options tool strip menu item drop down item clicked.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnOptionsToolStripMenuItemDropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             // TODO Add code
         }
 
         /// <summary>
-        /// Ons the free releases public domainis tool strip menu item click.
+        /// Handles  the free releases public domainis tool strip menu item click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnFreeReleasesPublicDomainisToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code 
         }
 
         /// <summary>
-        /// Ons the original thread donation codercom tool strip menu item click.
+        /// Handles  the original thread donation codercom tool strip menu item click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnOriginalThreadDonationCodercomToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code
         }
 
         /// <summary>
-        /// Ons the source code githubcom tool strip menu item click.
+        /// Handles  the source code githubcom tool strip menu item click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnSourceCodeGithubcomToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code 
         }
 
         /// <summary>
-        /// Ons the about tool strip menu item click.
+        /// Handles  the about tool strip menu item click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnAboutToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code
         }
 
         /// <summary>
-        /// Ons the exit tool strip menu item click.
+        /// Handles  the exit tool strip menu item click.
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
         private void OnExitToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code 
