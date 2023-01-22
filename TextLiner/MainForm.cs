@@ -95,8 +95,28 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnAscendingButtonClick(object sender, EventArgs e)
         {
+            // Copy lines array to list
+            IEnumerable<string> lines = this.bufferTextBox.Lines;
+
+            // First check if must trim
+            if (this.trimLinesToolStripMenuItem.Checked)
+            {
+                // Trim lines
+                lines = lines.Select(x => x.Trim());
+            }
+
+            // Check if must remove blanks
+            if (this.removeBlankLinesToolStripMenuItem.Checked)
+            {
+                // Remove empty lines
+                lines = lines.Where(x => !string.IsNullOrEmpty(x));
+            }
+
             // Order text box lines by ascending
-            this.bufferTextBox.Lines = this.bufferTextBox.Lines.OrderBy(x => x).ToArray();
+            lines = lines.OrderBy(x => x).ToArray();
+
+            // Set into text box lines
+            this.bufferTextBox.Lines = lines.ToArray();
         }
 
         /// <summary>
