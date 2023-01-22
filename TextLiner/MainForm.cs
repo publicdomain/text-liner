@@ -44,7 +44,8 @@ namespace TextLiner
         /// <param name="e">E.</param>
         private void OnMaxLengthButtonClick(object sender, EventArgs e)
         {
-            // TODO Add code 
+            // Order text box lines by min. length
+            this.bufferTextBox.Lines = this.bufferTextBox.Lines.OrderByDescending(x => x.Length).ToArray();
         }
 
         /// <summary>
