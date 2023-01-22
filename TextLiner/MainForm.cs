@@ -113,7 +113,7 @@ namespace TextLiner
             }
 
             // Order text box lines by ascending
-            lines = lines.OrderBy(x => x).ToArray();
+            lines = lines.OrderBy(x => x);
 
             // Set into text box lines
             this.bufferTextBox.Lines = lines.ToArray();
@@ -126,8 +126,28 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnDescendingButtonClick(object sender, EventArgs e)
         {
-            // Order text box lines by descending
-            this.bufferTextBox.Lines = this.bufferTextBox.Lines.OrderByDescending(x => x).ToArray();
+            // Copy lines array to list
+            IEnumerable<string> lines = this.bufferTextBox.Lines;
+
+            // First check if must trim
+            if (this.trimLinesToolStripMenuItem.Checked)
+            {
+                // Trim lines
+                lines = lines.Select(x => x.Trim());
+            }
+
+            // Check if must remove blanks
+            if (this.removeBlankLinesToolStripMenuItem.Checked)
+            {
+                // Remove empty lines
+                lines = lines.Where(x => !string.IsNullOrEmpty(x));
+            }
+
+            // Order text box lines by ascending
+            lines = lines.OrderByDescending(x => x);
+
+            // Set into text box lines
+            this.bufferTextBox.Lines = lines.ToArray();
         }
 
         /// <summary>
