@@ -34,24 +34,24 @@ namespace TextLiner
         private void OnMinLengthButtonClick(object sender, EventArgs e)
         {
             // Copy lines array to list
-            var lines = new List<string>(this.bufferTextBox.Lines);
+            IEnumerable<string> lines = this.bufferTextBox.Lines;
 
             // First check if must trim
             if (this.trimLinesToolStripMenuItem.Checked)
             {
                 // Trim lines
-                lines = lines.Select(x => x.Trim()).ToList();
+                lines = lines.Select(x => x.Trim());
             }
 
-            // Check if must remove blanks and trim
+            // Check if must remove blanks
             if (this.removeBlankLinesToolStripMenuItem.Checked)
             {
                 // Remove empty lines
-                lines = lines.Where(x => !string.IsNullOrEmpty(x)).ToList();
+                lines = lines.Where(x => !string.IsNullOrEmpty(x));
             }
 
             // Order lines by min. length
-            lines = lines.OrderBy(x => x.Length).ToList();
+            lines = lines.OrderBy(x => x.Length);
 
             // Set into text box lines
             this.bufferTextBox.Lines = lines.ToArray();
@@ -64,8 +64,28 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnMaxLengthButtonClick(object sender, EventArgs e)
         {
+            // Copy lines array to list
+            IEnumerable<string> lines = this.bufferTextBox.Lines;
+
+            // First check if must trim
+            if (this.trimLinesToolStripMenuItem.Checked)
+            {
+                // Trim lines
+                lines = lines.Select(x => x.Trim());
+            }
+
+            // Check if must remove blanks
+            if (this.removeBlankLinesToolStripMenuItem.Checked)
+            {
+                // Remove empty lines
+                lines = lines.Where(x => !string.IsNullOrEmpty(x));
+            }
+
             // Order text box lines by max. length
-            this.bufferTextBox.Lines = this.bufferTextBox.Lines.OrderByDescending(x => x.Length).ToArray();
+            lines = lines.OrderByDescending(x => x.Length).ToArray();
+
+            // Set into text box lines
+            this.bufferTextBox.Lines = lines.ToArray();
         }
 
         /// <summary>
