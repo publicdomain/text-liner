@@ -106,6 +106,12 @@ namespace TextLiner
 
             // Set into text box lines
             this.bufferTextBox.Lines = lines.ToArray();
+
+            // Set last
+            this.settingsData.last = this.minLengthButton.Text;
+
+            // TODO Reflect last [Can be made DRY]
+            this.lastToolStripStatusLabel.Text = this.settingsData.last;
         }
 
         /// <summary>
@@ -137,6 +143,12 @@ namespace TextLiner
 
             // Set into text box lines
             this.bufferTextBox.Lines = lines.ToArray();
+
+            // Set last
+            this.settingsData.last = this.maxLengthButton.Text;
+
+            // TODO Reflect last [Can be made DRY]
+            this.lastToolStripStatusLabel.Text = this.settingsData.last;
         }
 
         /// <summary>
@@ -168,6 +180,12 @@ namespace TextLiner
 
             // Set into text box lines
             this.bufferTextBox.Lines = lines.ToArray();
+
+            // Set last
+            this.settingsData.last = this.ascendingButton.Text;
+
+            // TODO Reflect last [Can be made DRY]
+            this.lastToolStripStatusLabel.Text = this.settingsData.last;
         }
 
         /// <summary>
@@ -199,6 +217,12 @@ namespace TextLiner
 
             // Set into text box lines
             this.bufferTextBox.Lines = lines.ToArray();
+
+            // Set last
+            this.settingsData.last = this.descendingButton.Text;
+
+            // TODO Reflect last [Can be made DRY]
+            this.lastToolStripStatusLabel.Text = this.settingsData.last;
         }
 
         /// <summary>
@@ -225,7 +249,65 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnOpenToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code 
+            // Reset file name
+            this.openFileDialog.FileName = string.Empty;
+
+            // Show open file dialog
+            if (this.openFileDialog.ShowDialog() == DialogResult.OK && this.openFileDialog.FileName.Length > 0)
+            {
+                try
+                {
+                    // Read file into text box
+                    this.bufferTextBox.Lines = File.ReadAllLines(this.openFileDialog.FileName);
+
+                    // Set file path
+                    this.filePath = this.openFileDialog.FileName;
+
+                    // Reflect file name
+                    this.fileNameToolStripStatusLabel.Text = Path.GetFileName(this.openFileDialog.FileName);
+
+                    // Check if must apply last
+                    if (this.applylastOnOpenToolStripMenuItem.Checked)
+                    {
+                        // Apply last on open
+                        switch (this.settingsData.last)
+                        {
+                            // Min. length
+                            case "M&in. length":
+                                // Click button
+                                this.minLengthButton.PerformClick();
+
+                                break;
+
+                            // Max. length
+                            case "M&ax. length":
+                                // Click button
+                                this.maxLengthButton.PerformClick();
+
+                                break;
+
+                            // Ascending
+                            case "&Ascending":
+                                // Click button
+                                this.ascendingButton.PerformClick();
+
+                                break;
+
+                            // Descending
+                            case "&Descending":
+                                // Click button
+                                this.descendingButton.PerformClick();
+
+                                break;
+                        }
+                    }
+                }
+                catch (Exception exception)
+                {
+                    // Inform user
+                    MessageBox.Show($"Error when opening \"{Path.GetFileName(this.openFileDialog.FileName)}\":{Environment.NewLine}{exception.Message}", "Open file error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         /// <summary>
@@ -460,6 +542,9 @@ namespace TextLiner
 
             // Trim lines
             this.trimLinesToolStripMenuItem.Checked = this.settingsData.TrimLines;
+
+            // Reflect last
+            this.lastToolStripStatusLabel.Text = this.settingsData.last;
         }
 
         /// <summary>

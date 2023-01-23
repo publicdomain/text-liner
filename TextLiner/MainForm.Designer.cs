@@ -59,10 +59,10 @@ namespace TextLiner
 			this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
 			this.linesTextToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.linesCountToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel6 = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+			this.separator1ToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this.lastTextToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this.lastToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this.separator2ToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.fileTextToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.fileNameToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -304,10 +304,10 @@ namespace TextLiner
 			this.mainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.linesTextToolStripStatusLabel,
 									this.linesCountToolStripStatusLabel,
-									this.toolStripStatusLabel4,
-									this.toolStripStatusLabel5,
-									this.toolStripStatusLabel6,
-									this.toolStripStatusLabel3,
+									this.separator1ToolStripStatusLabel,
+									this.lastTextToolStripStatusLabel,
+									this.lastToolStripStatusLabel,
+									this.separator2ToolStripStatusLabel,
 									this.fileTextToolStripStatusLabel,
 									this.fileNameToolStripStatusLabel});
 			this.mainStatusStrip.Location = new System.Drawing.Point(0, 420);
@@ -329,30 +329,30 @@ namespace TextLiner
 			this.linesCountToolStripStatusLabel.Size = new System.Drawing.Size(14, 17);
 			this.linesCountToolStripStatusLabel.Text = "0";
 			// 
-			// toolStripStatusLabel4
+			// separator1ToolStripStatusLabel
 			// 
-			this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-			this.toolStripStatusLabel4.Size = new System.Drawing.Size(18, 17);
-			this.toolStripStatusLabel4.Text = " / ";
+			this.separator1ToolStripStatusLabel.Name = "separator1ToolStripStatusLabel";
+			this.separator1ToolStripStatusLabel.Size = new System.Drawing.Size(18, 17);
+			this.separator1ToolStripStatusLabel.Text = " / ";
 			// 
-			// toolStripStatusLabel5
+			// lastTextToolStripStatusLabel
 			// 
-			this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
-			this.toolStripStatusLabel5.Size = new System.Drawing.Size(31, 17);
-			this.toolStripStatusLabel5.Text = "Last:";
+			this.lastTextToolStripStatusLabel.Name = "lastTextToolStripStatusLabel";
+			this.lastTextToolStripStatusLabel.Size = new System.Drawing.Size(31, 17);
+			this.lastTextToolStripStatusLabel.Text = "Last:";
 			// 
-			// toolStripStatusLabel6
+			// lastToolStripStatusLabel
 			// 
-			this.toolStripStatusLabel6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-			this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-			this.toolStripStatusLabel6.Size = new System.Drawing.Size(70, 17);
-			this.toolStripStatusLabel6.Text = "Min. length";
+			this.lastToolStripStatusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+			this.lastToolStripStatusLabel.Name = "lastToolStripStatusLabel";
+			this.lastToolStripStatusLabel.Size = new System.Drawing.Size(70, 17);
+			this.lastToolStripStatusLabel.Text = "Min. length";
 			// 
-			// toolStripStatusLabel3
+			// separator2ToolStripStatusLabel
 			// 
-			this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-			this.toolStripStatusLabel3.Size = new System.Drawing.Size(18, 17);
-			this.toolStripStatusLabel3.Text = " / ";
+			this.separator2ToolStripStatusLabel.Name = "separator2ToolStripStatusLabel";
+			this.separator2ToolStripStatusLabel.Size = new System.Drawing.Size(18, 17);
+			this.separator2ToolStripStatusLabel.Text = " / ";
 			// 
 			// fileTextToolStripStatusLabel
 			// 
@@ -487,12 +487,12 @@ namespace TextLiner
 		private System.Windows.Forms.OpenFileDialog openFileDialog;
 		private System.Windows.Forms.SaveFileDialog saveFileDialog;
 		private System.Windows.Forms.ToolStripMenuItem removeBlankLinesToolStripMenuItem;
-		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel6;
-		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
-		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+		private System.Windows.Forms.ToolStripStatusLabel lastToolStripStatusLabel;
+		private System.Windows.Forms.ToolStripStatusLabel lastTextToolStripStatusLabel;
+		private System.Windows.Forms.ToolStripStatusLabel separator1ToolStripStatusLabel;
 		private System.Windows.Forms.ToolStripStatusLabel fileNameToolStripStatusLabel;
 		private System.Windows.Forms.ToolStripStatusLabel fileTextToolStripStatusLabel;
-		private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
+		private System.Windows.Forms.ToolStripStatusLabel separator2ToolStripStatusLabel;
 		private System.Windows.Forms.ToolStripMenuItem applylastOnOpenToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.TextBox bufferTextBox;
