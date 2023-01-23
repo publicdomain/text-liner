@@ -57,6 +57,18 @@ namespace TextLiner
 
             // Set PublicDomain.is tool strip menu item image
             this.freeReleasesPublicDomainisToolStripMenuItem.Image = this.associatedIcon.ToBitmap();
+
+            /* Settings data */
+
+            // Check for settings file
+            if (!File.Exists(this.settingsDataPath))
+            {
+                // Create new settings file
+                this.SaveSettingsFile(this.settingsDataPath, new SettingsData());
+            }
+
+            // Load settings from disk
+            this.settingsData = this.LoadSettingsFile(this.settingsDataPath);
         }
 
         /// <summary>
@@ -414,7 +426,20 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnMainFormLoad(object sender, EventArgs e)
         {
-            // TODO Add code 
+            // Set topmost
+            this.TopMost = this.settingsData.AlwaysOnTop;
+
+            // Always on top
+            this.alwaysOnTopToolStripMenuItem.Checked = this.settingsData.AlwaysOnTop;
+
+            // Apply last on open
+            this.applylastOnOpenToolStripMenuItem.Checked = this.settingsData.ApplyLastOnOpen;
+
+            // Remove blank lines
+            this.removeBlankLinesToolStripMenuItem.Checked = this.settingsData.RemoveBlankLines;
+
+            // Trim lines
+            this.trimLinesToolStripMenuItem.Checked = this.settingsData.TrimLines;
         }
 
         /// <summary>
