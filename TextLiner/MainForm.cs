@@ -253,7 +253,8 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnCopyToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code 
+            // Copy operation
+            this.bufferTextBox.Copy();
         }
 
         /// <summary>
@@ -263,7 +264,8 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnPasteToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Paste operation
+            this.bufferTextBox.Paste();
         }
 
         /// <summary>
@@ -311,7 +313,8 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnOriginalThreadDonationCodercomToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Open orignal thread
+            Process.Start("https://www.donationcoder.com/forum/index.php?topic=43525.0");
         }
 
         /// <summary>
