@@ -276,7 +276,8 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnSelectAllToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code 
+            // Select all operation
+            this.bufferTextBox.SelectAll();
         }
 
         /// <summary>
