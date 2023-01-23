@@ -25,7 +25,12 @@ namespace TextLiner
         /// <summary>
         /// The buffer lines count.
         /// </summary>
-        int bufferLinesCount = 0;
+        private int bufferLinesCount = 0;
+
+        /// <summary>
+        /// The file path.
+        /// </summary>
+        private string filePath = string.Empty;
 
         /// <summary>
         /// Gets or sets the associated icon.
@@ -203,7 +208,14 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnNewToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Clear text buffer
+            this.bufferTextBox.Clear();
+
+            // Reset file path
+            this.filePath = string.Empty;
+
+            // Reflect file path reset
+            this.fileNameToolStripStatusLabel.Text = "Not set";
         }
 
         /// <summary>
@@ -233,7 +245,7 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnSaveAsToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code 
+            // TODO Add code
         }
 
         /// <summary>
