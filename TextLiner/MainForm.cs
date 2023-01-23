@@ -18,6 +18,11 @@ namespace TextLiner
     public partial class MainForm : Form
     {
         /// <summary>
+        /// The buffer lines count.
+        /// </summary>
+        int bufferLinesCount = 0;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="T:TextLiner.MainForm"/> class.
         /// </summary>
         public MainForm()
@@ -143,7 +148,7 @@ namespace TextLiner
                 lines = lines.Where(x => !string.IsNullOrEmpty(x));
             }
 
-            // Order text box lines by ascending
+            // Order text box lines by descending
             lines = lines.OrderByDescending(x => x);
 
             // Set into text box lines
@@ -281,6 +286,24 @@ namespace TextLiner
         }
 
         /// <summary>
+        /// Handles the buffer text box text changed.
+        /// </summary>
+        /// <param name="sender">Sender object.</param>
+        /// <param name="e">Event arguments.</param>
+        private void OnBufferTextBoxTextChanged(object sender, EventArgs e)
+        {
+            // Check for a different line count
+            if (this.bufferLinesCount != this.bufferTextBox.Lines.Count())
+            {
+                // Update buffer lines count
+                this.bufferLinesCount = this.bufferTextBox.Lines.Count();
+
+                // Update line count
+                this.linesCountToolStripStatusLabel.Text = this.bufferLinesCount.ToString();
+            }
+        }
+
+        /// <summary>
         /// Handles  the exit tool strip menu item click.
         /// </summary>
         /// <param name="sender">Sender object.</param>
@@ -288,11 +311,6 @@ namespace TextLiner
         private void OnExitToolStripMenuItemClick(object sender, EventArgs e)
         {
             // TODO Add code 
-        }
-
-        void OnBufferTextBoxTextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
