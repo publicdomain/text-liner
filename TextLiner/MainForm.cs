@@ -11,6 +11,7 @@ namespace TextLiner
     using System.Drawing;
     using System.IO;
     using System.Linq;
+    using System.Reflection;
     using System.Windows.Forms;
     using System.Xml.Serialization;
     using PublicDomain;
@@ -26,12 +27,36 @@ namespace TextLiner
         int bufferLinesCount = 0;
 
         /// <summary>
+        /// Gets or sets the associated icon.
+        /// </summary>
+        /// <value>The associated icon.</value>
+        private Icon associatedIcon = null;
+
+        /// <summary>
+        /// The settings data.
+        /// </summary>
+        private SettingsData settingsData = null;
+
+        /// <summary>
+        /// The settings data path.
+        /// </summary>
+        private string settingsDataPath = $"{Application.ProductName}-SettingsData.txt";
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="T:TextLiner.MainForm"/> class.
         /// </summary>
         public MainForm()
         {
             // The InitializeComponent() call is required for Windows Forms designer support.
             this.InitializeComponent();
+
+            /* Set icons */
+
+            // Set associated icon from exe file
+            this.associatedIcon = Icon.ExtractAssociatedIcon(typeof(MainForm).GetTypeInfo().Assembly.Location);
+
+            // Set PublicDomain.is tool strip menu item image
+            this.freeReleasesPublicDomainisToolStripMenuItem.Image = this.associatedIcon.ToBitmap();
         }
 
         /// <summary>
