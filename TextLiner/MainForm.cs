@@ -243,7 +243,8 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnCutToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Cut operation
+            this.bufferTextBox.Cut();
         }
 
         /// <summary>
