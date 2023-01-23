@@ -49,6 +49,7 @@ namespace TextLiner
 			this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.applylastOnOpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.removeBlankLinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.trimLinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.freeReleasesPublicDomainisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.originalThreadDonationCodercomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +73,6 @@ namespace TextLiner
 			this.bufferTextBox = new System.Windows.Forms.TextBox();
 			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-			this.trimLinesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mainMenuStrip.SuspendLayout();
 			this.mainStatusStrip.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -245,6 +245,12 @@ namespace TextLiner
 			this.removeBlankLinesToolStripMenuItem.Name = "removeBlankLinesToolStripMenuItem";
 			this.removeBlankLinesToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
 			this.removeBlankLinesToolStripMenuItem.Text = "&Remove blank lines";
+			// 
+			// trimLinesToolStripMenuItem
+			// 
+			this.trimLinesToolStripMenuItem.Name = "trimLinesToolStripMenuItem";
+			this.trimLinesToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+			this.trimLinesToolStripMenuItem.Text = "&Trim lines";
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -454,12 +460,6 @@ namespace TextLiner
 			this.openFileDialog.Filter = "TXT files (*.txt)|*.txt|All files (*.*)|*.*";
 			this.openFileDialog.Title = "Open games file";
 			// 
-			// trimLinesToolStripMenuItem
-			// 
-			this.trimLinesToolStripMenuItem.Name = "trimLinesToolStripMenuItem";
-			this.trimLinesToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-			this.trimLinesToolStripMenuItem.Text = "&Trim lines";
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -472,6 +472,8 @@ namespace TextLiner
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "TextLiner";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnMainFormFormClosing);
+			this.Load += new System.EventHandler(this.OnMainFormLoad);
 			this.mainMenuStrip.ResumeLayout(false);
 			this.mainMenuStrip.PerformLayout();
 			this.mainStatusStrip.ResumeLayout(false);
