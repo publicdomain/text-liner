@@ -389,7 +389,22 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnMainFormFormClosing(object sender, FormClosingEventArgs e)
         {
-            // TODO Add code 
+            /* Setiings data values */
+
+            // ALways on top
+            this.settingsData.AlwaysOnTop = this.alwaysOnTopToolStripMenuItem.Checked;
+
+            // Apply last on open
+            this.settingsData.ApplyLastOnOpen = this.applylastOnOpenToolStripMenuItem.Checked;
+
+            // Remove blank lines
+            this.settingsData.RemoveBlankLines = this.removeBlankLinesToolStripMenuItem.Checked;
+
+            // Trim lines
+            this.settingsData.TrimLines = this.trimLinesToolStripMenuItem.Checked;
+
+            // Save settings data to disk
+            this.SaveSettingsFile(this.settingsDataPath, this.settingsData);
         }
 
         /// <summary>
