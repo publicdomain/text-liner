@@ -327,7 +327,36 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnSaveAsToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code
+            // Check there's something to save
+            if (this.bufferTextBox.TextLength == 0)
+            {
+                // Inform user
+                MessageBox.Show($"No lines to save.", "Empty buffer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Halt flow
+                return;
+            }
+
+            // Empty file name
+            this.saveFileDialog.FileName = string.Empty;
+
+            // Open save file dialog
+            if (this.saveFileDialog.ShowDialog() == DialogResult.OK && this.saveFileDialog.FileName.Length > 0)
+            {
+                try
+                {
+                    // Save lines to disk
+                    File.WriteAllLines(this.saveFileDialog.FileName, this.bufferTextBox.Lines);
+                }
+                catch (Exception exception)
+                {
+                    // Inform user
+                    MessageBox.Show($"Error when saving to \"{Path.GetFileName(this.saveFileDialog.FileName)}\":{Environment.NewLine}{exception.Message}", "Save file error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Inform user
+                MessageBox.Show($"Saved current lines to \"{Path.GetFileName(this.saveFileDialog.FileName)}\"", "File saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         /// <summary>
