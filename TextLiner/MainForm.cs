@@ -8,6 +8,7 @@ namespace TextLiner
     // Directives
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Drawing;
     using System.IO;
     using System.Linq;
@@ -319,7 +320,8 @@ namespace TextLiner
         /// <param name="e">Event arguments.</param>
         private void OnSourceCodeGithubcomToolStripMenuItemClick(object sender, EventArgs e)
         {
-            // TODO Add code 
+            // Open GitHub repository
+            Process.Start("https://github.com/publicdomain/text-liner");
         }
 
         /// <summary>
